@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace carApp.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class initialMigration : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -96,7 +96,7 @@ namespace carApp.Data.Migrations
                     Adi = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Soyadi = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Telefon = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Telefon = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     KullaniciAdi = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Sifre = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     AktifMi = table.Column<bool>(type: "bit", nullable: false),
@@ -176,7 +176,7 @@ namespace carApp.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Kullanicilar",
                 columns: new[] { "Id", "Adi", "AktifMi", "EklenmeTarihi", "Email", "KullaniciAdi", "RolId", "Sifre", "Soyadi", "Telefon" },
-                values: new object[] { 2, "Admin", true, new DateTime(2024, 10, 7, 13, 23, 34, 947, DateTimeKind.Local).AddTicks(5527), "admin@otoservissatis.tc", "admin", 1, "123456", "Admin", "0555 555 55 55" });
+                values: new object[] { 2, "Admin", true, new DateTime(2024, 10, 7, 18, 40, 14, 942, DateTimeKind.Local).AddTicks(6257), "admin@otoservissatis.tc", "admin", 1, "123456", "Admin", "0555 555 55 55" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Araclar_MarkaId",

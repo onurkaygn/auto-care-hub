@@ -1,0 +1,43 @@
+﻿@model carApp.Entities.Rol
+
+@{
+    ViewData["Title"] = "Rol Ekle";
+}
+
+<h1 class="text-center my-4">Rol Ekle</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Create" class="border p-4 rounded shadow">
+                <h4 class="mb-4">Rol Bilgileri</h4>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Adi" class="form-label"></label>
+                    <input asp-for="Adi" class="form-control" placeholder="Rol adını girin" />
+                    <span asp-validation-for="Adi" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Ekle" class="btn btn-primary w-100" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .border {
+        border: 1px solid #dee2e6;
+    }
+    .rounded {
+        border-radius: 0.25rem;
+    }
+    .shadow {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+</style>

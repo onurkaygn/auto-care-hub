@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace carApp.Data.Abstract
 {
-    public interface Repository<T> where T : class
+    public interface IRepository<T> where T : class
     {
         List<T> GetAll();
 

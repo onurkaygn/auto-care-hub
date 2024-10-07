@@ -1,4 +1,5 @@
-﻿using carApp.Data.Abstract;
+﻿
+using carApp.Data.Abstract;
 using carApp.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace carApp.Data.Concrete
 {
-    public class Repository<T> : Abstract.Repository<T> where T : class, IEntity, new()
+    public class Repository<T> : IRepository<T> where T : class, IEntity, new()
     {
         internal DatabaseContext _context;
         internal DbSet<T> _dbSet;

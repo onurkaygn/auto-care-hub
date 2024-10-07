@@ -111,7 +111,6 @@ namespace carApp.Data.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Telefon")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
@@ -127,7 +126,7 @@ namespace carApp.Data.Migrations
                             Id = 2,
                             Adi = "Admin",
                             AktifMi = true,
-                            EklenmeTarihi = new DateTime(2024, 10, 7, 13, 23, 34, 947, DateTimeKind.Local).AddTicks(5527),
+                            EklenmeTarihi = new DateTime(2024, 10, 7, 18, 40, 14, 942, DateTimeKind.Local).AddTicks(6257),
                             Email = "admin@otoservissatis.tc",
                             KullaniciAdi = "admin",
                             RolId = 1,

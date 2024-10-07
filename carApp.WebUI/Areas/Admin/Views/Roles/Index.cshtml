@@ -1,0 +1,48 @@
+﻿@model IEnumerable<carApp.Entities.Rol>
+
+@{
+    ViewData["Title"] = "Roller";
+}
+
+<style>
+    .btn-width {
+        width: 100px; /* Butonların aynı genişlikte olması için */
+    }
+</style>
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-primary">Roller</h1>
+
+    <p>
+        <a class="btn btn-outline-success mb-3" asp-action="Create">
+            <i class="bi bi-plus-circle"></i> Yeni Ekle
+        </a>
+    </p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>Rolün Adı</th>
+                    <th>Rol Kontrolü</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="align-middle">@Html.DisplayFor(modelItem => item.Adi)</td>
+                        <td class="text-center">
+                            <a class="btn btn-warning btn-sm btn-width" asp-action="Edit" asp-route-id="@item.Id">
+                                <i class="bi bi-pencil-fill"></i> Düzenle
+                            </a>
+                            <a class="btn btn-danger btn-sm btn-width ms-2" asp-action="Delete" asp-route-id="@item.Id">
+                                <i class="bi bi-trash-fill"></i> Sil
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 ﻿using carApp.Data.Abstract;
+using carApp.Data.Concrete;
 using carApp.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace carApp.Service.Abstract
 {
-    public interface IService<T> : Repository<T> where T : class, IEntity, new()
+    public interface IService<T> : IRepository<T> where T : class, IEntity, new()
     {
     }
 }
