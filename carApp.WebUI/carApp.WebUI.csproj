@@ -7,14 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\startbootstrap-sb-admin-gh-pages\**" />
+    <Content Remove="wwwroot\startbootstrap-sb-admin-gh-pages\**" />
+    <EmbeddedResource Remove="wwwroot\startbootstrap-sb-admin-gh-pages\**" />
+    <None Remove="wwwroot\startbootstrap-sb-admin-gh-pages\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\carApp.Data\carApp.Data.csproj" />
+    <ProjectReference Include="..\carApp.Service\carApp.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
 
 </Project>
