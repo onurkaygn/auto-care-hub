@@ -12,21 +12,28 @@ namespace carApp.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.;Database=OtoServisSatis;Integrated Security= True; MultipleActiveResultSets=True;");
+            optionsBuilder.UseSqlServer("Server=.;Database=OtoServisSatis;Integrated Security= True; MultipleActiveResultSets=True;TrustServerCertificate=True;");
             base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //Fluent API
-            modelBuilder.Entity<Marka>().Property(m => m.Adi).IsRequired().HasColumnType("varchar(50"); //Data Annotation alternative.
-            modelBuilder.Entity<Rol>().Property(m => m.Adi).IsRequired().HasColumnType("varchar(50"); //Data Annotation alternative.
+            modelBuilder.Entity<Marka>()
+           .Property(m => m.Adi)
+           .IsRequired() // Bu alanın boş olmaması gerektiğini belirtiyor.
+           .HasColumnType("varchar(50)"); // SQL veri tipini belirtiyor.
+
+            modelBuilder.Entity<Rol>()
+                .Property(m => m.Adi)
+                .IsRequired()
+                .HasColumnType("varchar(50)");
 
             modelBuilder.Entity<Rol>().HasData(new Rol
             {
                 Id = 1,
                 Adi = "Admin"
             });
+
             modelBuilder.Entity<Kullanici>().HasData(new Kullanici
             {
                 Id = 2,
@@ -38,11 +45,12 @@ namespace carApp.Data
                 Email = "admin@otoservissatis.tc",
                 KullaniciAdi = "admin",
                 Sifre = "123456",
-                Rol = new Rol { Id = 1 },
                 RolId = 1,
             });
+
             base.OnModelCreating(modelBuilder);
         }
+
 
         public DbSet<Arac> Araclar { get; set; }
         public DbSet<Kullanici> Kullanicilar { get; set; }
